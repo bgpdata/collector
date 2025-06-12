@@ -1,10 +1,7 @@
 #!/bin/bash
-# All-in-One run script
-#
-# Copyright (c) 2021 Cisco Systems, Inc. and Tim Evens.  All rights reserved.
-#
-# Author: Tim Evens <tim@openbmp.org>
-#
+# Copyright (c) 2021 Cisco Systems, Inc. and Tim Evens.
+# All rights reserved.
+
 ADMIN_ID=${ADMIN_ID:="collector"}
 
 DOCKER_HOST_IP=$(ip route | grep default | head -1 | awk '{ print $3}')
@@ -22,13 +19,6 @@ else
     elif [[ ${KAFKA_FQDN} == "::1" ]]; then
         KAFKA_FQDN="docker-localhost"
     fi
-fi
-
-
-if [[ -f /config/collectord ]]; then
-    source /config/collectord
-else
-    source /etc/default/collectord
 fi
 
 #
@@ -52,13 +42,9 @@ fi
 
 
 # Update collectord config file
-COLLECTOR_CFG_FILE=/usr/etc/openbmp/collectord.conf
-sed -r -i "s/admin_id:.*/admin_id: ${ADMIN_ID}/" /usr/etc/openbmp/collectord.conf
-sed -r -i "s/localhost:9092/${KAFKA_FQDN}/" /usr/etc/openbmp/collectord.conf
-
-if [[ -f /config/collectord.conf ]]; then
-    COLLECTOR_CFG_FILE=/config/collectord.conf
-fi
+COLLECTOR_CFG_FILE=/usr/etc/bgpdata/collectord.conf
+sed -r -i "s/admin_id:.*/admin_id: ${ADMIN_ID}/" /usr/etc/bgpdata/collectord.conf
+sed -r -i "s/localhost:9092/${KAFKA_FQDN}/" /usr/etc/bgpdata/collectord.conf
 
 # Startup delay to allow for Kafka to start if not already running
 echo "Waiting 30 seconds to allow for Kafka and other containers to startup."
