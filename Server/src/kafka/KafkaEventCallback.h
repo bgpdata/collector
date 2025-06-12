@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef OPENBMP_KAFKAEVENTCALLBACK_H
-#define OPENBMP_KAFKAEVENTCALLBACK_H
+#ifndef COLLECTOR_KAFKAEVENTCALLBACK_H
+#define COLLECTOR_KAFKAEVENTCALLBACK_H
 
 #include <librdkafka/rdkafkacpp.h>
 #include "Logger.h"
@@ -34,4 +34,4 @@ private:
 };
 
 
-#endif //OPENBMP_KAFKAEVENTCALLBACK_H
+#endif //COLLECTOR_KAFKAEVENTCALLBACK_H

@@ -89,7 +89,7 @@ void *ClientThread(void *arg) {
 
     /*
      * Setup the cleanup routine for when the thread is canceled.
-     *  A thread is only canceled if openbmpd is terminated.
+     *  A thread is only canceled if collectord is terminated.
      */
     pthread_cleanup_push(ClientThread_cancel, &cInfo);
 

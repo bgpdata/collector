@@ -114,7 +114,7 @@ set (SRC_FILES
 	src/kafka/KafkaDeliveryReportCallback.cpp
     src/kafka/KafkaTopicSelector.cpp
     src/kafka/KafkaPeerPartitionerCallback.cpp
-	src/openbmp.cpp
+	src/collector.cpp
 	src/bmp/parseBMP.cpp
 	src/md5.cpp
 	src/Logger.cpp
@@ -156,15 +156,15 @@ endif()
 set (LIBS pthread ${LIBYAML_CPP_LIBRARY} ${LIBRDKAFKA_CPP_LIBRARY} ${LIBRDKAFKA_LIBRARY} z ${SSL_LIBS} ${LIBLZ4_LIBRARY} ${LIBZSTD_LIBRARY} dl)
 
 # Set the binary
-add_executable (openbmpd ${SRC_FILES})
+add_executable (collectord ${SRC_FILES})
 
 # Link the binary
-target_link_libraries (openbmpd ${LIBS})
+target_link_libraries (collectord ${LIBS})
 
 if (LIBRT_LIBRARY)
-    target_link_libraries(openbmpd ${LIBRT_LIBRARY})
+    target_link_libraries(collectord ${LIBRT_LIBRARY})
 endif()
 
 # Install the binary and configs
-install(TARGETS openbmpd DESTINATION bin COMPONENT binaries)
-install(FILES openbmpd.conf DESTINATION etc/openbmp/ COMPONENT config)
+install(TARGETS collectord DESTINATION bin COMPONENT binaries)
+install(FILES collectord.conf DESTINATION etc/bgpdata/ COMPONENT config)

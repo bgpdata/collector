@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef OPENBMP_KAFKATOPICSELECTOR_H
-#define OPENBMP_KAFKATOPICSELECTOR_H
+#ifndef COLLECTOR_KAFKATOPICSELECTOR_H
+#define COLLECTOR_KAFKATOPICSELECTOR_H
 
 #include <librdkafka/rdkafkacpp.h>
 #include "Config.h"
@@ -20,18 +20,18 @@ public:
     /**
      * MSGBUS_TOPIC_* defines the default topic names
      */
-    #define MSGBUS_TOPIC_COLLECTOR              "openbmp.parsed.collector"
-    #define MSGBUS_TOPIC_ROUTER                 "openbmp.parsed.router"
-    #define MSGBUS_TOPIC_PEER                   "openbmp.parsed.peer"
-    #define MSGBUS_TOPIC_BASE_ATTRIBUTE         "openbmp.parsed.base_attribute"
-    #define MSGBUS_TOPIC_UNICAST_PREFIX         "openbmp.parsed.unicast_prefix"
-    #define MSGBUS_TOPIC_L3VPN                  "openbmp.parsed.l3vpn"
-    #define MSGBUS_TOPIC_EVPN                   "openbmp.parsed.evpn"
-    #define MSGBUS_TOPIC_LS_NODE                "openbmp.parsed.ls_node"
-    #define MSGBUS_TOPIC_LS_LINK                "openbmp.parsed.ls_link"
-    #define MSGBUS_TOPIC_LS_PREFIX              "openbmp.parsed.ls_prefix"
-    #define MSGBUS_TOPIC_BMP_STAT               "openbmp.parsed.bmp_stat"
-    #define MSGBUS_TOPIC_BMP_RAW                "openbmp.bmp_raw"
+    #define MSGBUS_TOPIC_COLLECTOR              "bgpdata.parsed.collector"
+    #define MSGBUS_TOPIC_ROUTER                 "bgpdata.parsed.router"
+    #define MSGBUS_TOPIC_PEER                   "bgpdata.parsed.peer"
+    #define MSGBUS_TOPIC_BASE_ATTRIBUTE         "bgpdata.parsed.base_attribute"
+    #define MSGBUS_TOPIC_UNICAST_PREFIX         "bgpdata.parsed.unicast_prefix"
+    #define MSGBUS_TOPIC_L3VPN                  "bgpdata.parsed.l3vpn"
+    #define MSGBUS_TOPIC_EVPN                   "bgpdata.parsed.evpn"
+    #define MSGBUS_TOPIC_LS_NODE                "bgpdata.parsed.ls_node"
+    #define MSGBUS_TOPIC_LS_LINK                "bgpdata.parsed.ls_link"
+    #define MSGBUS_TOPIC_LS_PREFIX              "bgpdata.parsed.ls_prefix"
+    #define MSGBUS_TOPIC_BMP_STAT               "bgpdata.parsed.bmp_stat"
+    #define MSGBUS_TOPIC_BMP_RAW                "bgpdata.bmp_raw"
 
     /**
      * MSGBUS_TOPIC_VAR_* defines the topic var/key for the topic maps.
@@ -189,4 +189,4 @@ private:
 };
 
 
-#endif //OPENBMP_KAFKATOPICSELECTOR_H
+#endif //COLLECTOR_KAFKATOPICSELECTOR_H

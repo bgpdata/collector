@@ -36,10 +36,10 @@ rm -rf /tmp/kafka_2.11-0.10.0.1*
 
 ```
 
-## 2) Configure openbmpd.conf
+## 2) Configure collectord.conf
 
 ```sh
-vi /usr/etc/openbmp/openbmpd.conf
+vi /usr/etc/openbmp/collectord.conf
 ```
 
 ## 3) Configure/Start Kafka
@@ -75,7 +75,7 @@ bin/kafka-server-start.sh config/server.properties > /var/log/kafka.log &
 
 ```sh
 cd /tmp
-openbmpd -c /usr/etc/openbmp/openbmpd.conf -l /var/log/openbmpd.log
+collectord -c /usr/etc/openbmp/collectord.conf -l /var/log/collectord.log
 ```
 
 > #### NOTE:

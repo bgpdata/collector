@@ -1,17 +1,9 @@
 #!/bin/bash
-# Collector install script
-#
-# Copyright (c) 2021 Cisco Systems, Inc. and Tim Evens.  All rights reserved.
-#
-# Author: Tim Evens <tim@openbmp.org>
+# Copyright (c) 2021 Cisco Systems, Inc. and others.
+# All rights reserved.
 
 # Add build details
 touch /usr/local/version-${VERSION}
-
-#
-# Defaults
-#
-
 
 # Disable interactive
 export DEBIAN_FRONTEND=noninteractive
@@ -19,22 +11,14 @@ export DEBIAN_FRONTEND=noninteractive
 # Install base packages
 apt-get update
 
-# Fix ubuntu docker install
-#sed -i 's/exit 101/exit 0/' /usr/sbin/policy-rc.d
-
-# General depend install
+# Install dependencies
 apt-get install -y iproute2 wget zlib1g libssl1.1 libsasl2-2
 
-# --
-# -- Add host entries for reverse PTR lookups
-# -- 
+# Add host entries for reverse PTR lookups
 if [[ -f /config/hosts ]]; then
     cat /config/hosts >> /etc/hosts
 fi
 
-# -- 
-# -- Clean up
-# -- 
+# Cleanup
 apt-get clean
 rm -rf /var/lib/apt/lists/* /var/tmp/*
-rm -f /tmp/install

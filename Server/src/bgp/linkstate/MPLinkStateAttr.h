@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _OPENBMP_LINKSTATEATTR_H_
-#define _OPENBMP_LINKSTATEATTR_H_
+#ifndef _COLLECTOR_LINKSTATEATTR_H_
+#define _COLLECTOR_LINKSTATEATTR_H_
 
 #include <cstdint>
 #include <cinttypes>
@@ -196,4 +196,4 @@ namespace bgp_msg {
 
 }
 
-#endif //_OPENBMP_LINKSTATEATTR_H_
+#endif //_COLLECTOR_LINKSTATEATTR_H_

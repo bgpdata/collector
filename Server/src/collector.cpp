@@ -8,9 +8,9 @@
  */
 
 /**
- * \file   openbmpd.cpp
+ * \file   collectord.cpp
  *
- * \brief  The openbmp daemon
+ * \brief  The bgpdata daemon
  *
  * \author Tim Evens <tievens@cisco.com>, <tim@openbmp.org>
  */
@@ -19,7 +19,7 @@
 #include "MsgBusImpl_kafka.h"
 #include "MsgBusInterface.hpp"
 #include "client_thread.h"
-#include "openbmpd_version.h"
+#include "collectord_version.h"
 #include "Config.h"
 
 #include <unistd.h>
@@ -188,7 +188,7 @@ bool ReadCmdArgs(int argc, char **argv, Config &cfg) {
 
     // Make sure we have the correct number of required args
     if (argc > 1 and !strcmp(argv[1], "-v")) {   // Version
-        cout << "openbmpd (www.openbmp.org) version : " << OPENBMPD_VERSION << endl;
+        cout << "collectord (www.bgp-data.net) version : " << COLLECTORD_VERSION << endl;
         exit(0);
     }
 

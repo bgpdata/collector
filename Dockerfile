@@ -1,8 +1,8 @@
 # Copyright (c) 2022 Cisco Systems, Inc. and others.
 # All rights reserved.
-FROM openbmp/dev-image:latest AS build
+FROM bgpdata/base:latest AS build
 
-COPY obmp-collector/ /ws
+COPY . /ws
 WORKDIR /ws
 
 RUN rm -rf build && mkdir -p build && cd build \
@@ -12,16 +12,15 @@ RUN rm -rf build && mkdir -p build && cd build \
 
 FROM debian:stable-slim
 
-ADD --chmod=755 obmp-docker/collector/scripts/install /tmp/
-ADD --chmod=755 obmp-docker/collector/scripts/run /usr/sbin/
+COPY --chmod=755 scripts/run.sh /usr/sbin/run
 
 ARG VERSION=0
 
-COPY --chmod=755 --from=build /usr/bin/openbmpd /usr/bin/
-COPY --from=build /usr/etc/openbmp/openbmpd.conf /usr/etc/openbmp/openbmpd.conf
+COPY --chmod=755 --from=build /usr/bin/collectord /usr/bin/
+COPY --from=build /usr/etc/bgpdata/collectord.conf /usr/etc/bgpdata/collectord.conf
 
 # Install
-RUN /tmp/install
+RUN scripts/install.sh
 
 VOLUME ["/config"]
 

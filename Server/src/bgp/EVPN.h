@@ -1,5 +1,5 @@
-#ifndef _OPENBMP_EVPN_H_
-#define _OPENBMP_EVPN_H_
+#ifndef _COLLECTOR_EVPN_H_
+#define _COLLECTOR_EVPN_H_
 
 #include <cstdint>
 #include <cinttypes>
@@ -92,4 +92,4 @@ namespace bgp_msg {
 }
 
 
-#endif //_OPENBMP_EVPN_H_
+#endif //_COLLECTOR_EVPN_H_

@@ -14,7 +14,7 @@ Change Log
 ### New Features/Changes
 
 * Added circular buffer for ingress BMP buffering
-* Added new openbmpd option -b and OPENBMP_BUFFER to configure the buffer
+* Added new collectord option -b and COLLECTOR_BUFFER to configure the buffer
 * Added parallel query support for gen-asn-stats
 
 ### Defects/Fixes

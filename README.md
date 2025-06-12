@@ -15,7 +15,7 @@ OpenBMP Flow
 
 * Apache Kafka enables many applications the ability to tap into the existing BMP feeds from any number of routers.  A single BMP feed via OpenBMP can feed data into hundreds of consumer apps, such as MySQL, Cassandra, Real-time monitors, Flat file, ELK, Apache Spark, etc.
 
-* OpenBMP forwarder can be used to forward the native BMP messages (no modification) to any other BMP receiver, including openbmpd.
+* OpenBMP forwarder can be used to forward the native BMP messages (no modification) to any other BMP receiver, including collectord.
 
 * Admins, Network Engineers, automated programs/scripts, etc. interact with the OpenBMP API or any other consuming application
 

@@ -24,7 +24,7 @@ using namespace boost::xpressive;
 /**
  * \class   Config
  *
- * \brief   Configuration class for openbmpd
+ * \brief   Configuration class for collectord
  * \details
  *      Parses the yaml configuration file and loads value in this class instance.
  */

@@ -69,10 +69,10 @@ NAME | Value | Details
 :---- | ----- |:-------
 **API\_FQDN** | hostname | **required** Fully qualified hostname for the docker host of this container, will be used for API and Kafka. It is also the collector Admin Id
 MEM | RAM in GB | The size of RAM allowed for container in gigabytes. (e.g. ```-e MEM=15```)
-OPENBMP_BUFFER | Size in MB | Defines the openbmpd buffer per router for BMP messages. Default is 16 MB.  
+COLLECTOR_BUFFER | Size in MB | Defines the collectord buffer per router for BMP messages. Default is 16 MB.  
 REINIT_DB | 1 | If set to 1 the DB will be reinitialized, which is needed to load the new schema sometimes.  This will wipe out the old data and start from scratch.  When this is not set, the old DB is reused.   (e.g. ```-e REINIT_DB=1```)
 MYSQL\_ROOT\_PASSWORD | password | MySQL root user password.  The default is **OpenBMP**.  The root password can be changed using [standard MySQL instructions](https://dev.mysql.com/doc/refman/5.6/en/resetting-permissions.html).  If you do change the password, you will need to run the container with this env set.
-MYSQL\_OPENBMP\_PASSWORD | password | MySQL openbmp user password.  The default is **openbmp**.  You can change the default openbmp user password using [standard mysql instructions](https://dev.mysql.com/doc/refman/5.6/en/set-password.html).  If you change the openbmp user password you MUST use this env.  
+MYSQL\_COLLECTOR\_PASSWORD | password | MySQL openbmp user password.  The default is **openbmp**.  You can change the default openbmp user password using [standard mysql instructions](https://dev.mysql.com/doc/refman/5.6/en/set-password.html).  If you change the openbmp user password you MUST use this env.  
 
 #### Run normally
 > ##### IMPORTANT
@@ -96,7 +96,7 @@ MYSQL\_OPENBMP\_PASSWORD | password | MySQL openbmp user password.  The default 
 Once the container is running you can run a **HTTP GET http://docker_host:8001/db_rest/v1/routers** to test that the API interface is working. 
 
 You can use standard docker exec commands to monitor the log files.  To monitor 
-openbmp, use ```docker exec openbmp_aio tail -f /var/log/openbmpd.log```
+openbmp, use ```docker exec openbmp_aio tail -f /var/log/collectord.log```
 
 Alternatively, it can be easier at times to navigate all the log files from within the container. You can do so using:
     
@@ -133,7 +133,7 @@ First install either the **Server** or **Cloud** standard Ubuntu image available
 ### Required Steps
 
   1. Update the apt get repo
-  1. Install openbmpd using package or from source
+  1. Install collectord using package or from source
   1. Install openbmp MySQL consumer
   1. Install Apache Kafka 
   1. Install mysql DB server
@@ -141,12 +141,12 @@ First install either the **Server** or **Cloud** standard Ubuntu image available
   1. Configure mysql settings
   1. Restart Mysql
   1. Create/update the database schema
-  1. Run openbmpd
+  1. Run collectord
   1. Run openbmp-mysql-consumer
 
 
 > #### NOTE
-> Our builds of openbmpd statically links librdkafka so that you do not have to compile/install that. If needed, see [BUILD](BUILD.md) for details on how to build/install librdkafka.
+> Our builds of collectord statically links librdkafka so that you do not have to compile/install that. If needed, see [BUILD](BUILD.md) for details on how to build/install librdkafka.
 
 
 ### Before using 'apt-get' do the following to make sure the repositories are up-to-date
@@ -380,7 +380,7 @@ mysql -u root -p openBMP < mysql-openbmp-current.db
 
 MySQL should be installed now and it should be running.   OpenBMP is ready to run. 
 
-**openbmpd**   *(normally installed in /usr/bin)*
+**collectord**   *(normally installed in /usr/bin)*
 
 ```
   REQUIRED OPTIONS:
@@ -421,11 +421,11 @@ MySQL should be installed now and it should be running.   OpenBMP is ready to ru
 Below starts openbmp on port 5555 for inbound BMP connections using Kafka server localhost:9092 and buffer of 16MB per router. 
 
 ```
-sudo openbmpd -a $(uname -n) -k localhost -b 16 -p 5555 -l /var/log/openbmpd.log -pid /var/run/openbmpd.pid
+sudo collectord -a $(uname -n) -k localhost -b 16 -p 5555 -l /var/log/collectord.log -pid /var/run/collectord.pid
 ```
 
 > **NOTE** 
-> The above command uses 'sudo' because openbmp is creating the log file /var/log/openbmp.log and updating the pid file /var/run/openbmp.pid, which normally are not writable to normal users.  If the log and pid files are writable by the user running openbmpd, then sudo is not required. 
+> The above command uses 'sudo' because openbmp is creating the log file /var/log/openbmp.log and updating the pid file /var/run/openbmp.pid, which normally are not writable to normal users.  If the log and pid files are writable by the user running collectord, then sudo is not required. 
 
 
 ### Run openbmp-mysql-consumer

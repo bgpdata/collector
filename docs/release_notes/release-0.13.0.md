@@ -23,7 +23,7 @@ Change Log
 * Added DNS PTR lookup on OSPF router id
 * Added OSPF DR support by including the DR in the IGP_Router_ID
 * Added support for default route advertisements in BMP server
-* Added Kafka Producer configurations to openbmpd.conf
+* Added Kafka Producer configurations to collectord.conf
 * Added router init TLV INIT_TYPE_ROUTER_BGP_ID=65531
 * Added unreserved bandwidth parsing
 * Added bgp-ls node flag decoding

@@ -3,7 +3,7 @@ Requirements
 ============
 Various requirements and suggested system configurations for runtime and build installs. 
 
-Runtime *(When running openbmpd and mysql)*
+Runtime *(When running collectord and mysql)*
 -----------------------------------------
 
 ### Database
@@ -35,10 +35,10 @@ The database is CPU, memory, and disk intensive. It's recommended that the DB se
 | --------- | --------- | ----------- | ----------- | -----------| 
 | VM x86_64 | 8 or more | 16G or more | 60G or more | SSD or SAN |
 
->  Openbmpd can coexist on the same server as the DB.  If you run openbmpd and the DB on the same box, then it's okay to use the above for both.  
+>  Openbmpd can coexist on the same server as the DB.  If you run collectord and the DB on the same box, then it's okay to use the above for both.  
 
 
-BUILD/Development - *(When compiling and building openbmpd from source)*
+BUILD/Development - *(When compiling and building collectord from source)*
 --------------------------------------------------------------------
 
 ### Database *(same as runtime requirement)*

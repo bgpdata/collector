@@ -36,7 +36,7 @@ Notes
 ----------------
 
 ### Router Up/Down via conn_count
-To properly set conn_count in the DB, openbmpd should be stopped via the init script.   If you use SIGKILL, the db will not get updated by openbmpd when its shutdown.
+To properly set conn_count in the DB, collectord should be stopped via the init script.   If you use SIGKILL, the db will not get updated by collectord when its shutdown.
 
 ### 2-Octet ASN Support
 Cisco IOS XR/XE will send unmodified UPDATES, which will contain 2-octet ASN's if 4-octet is not negotiated.  [Section-5](https://tools.ietf.org/html/draft-ietf-grow-bmp-07#section-5) specifies that all UPDATES should use 4-octet ASN regardless of sent/received capabilities.  Most of the time 4-octet ASN's are used, so this is normally not an issue.  Legacy hardware/software still exists and therefore 2-octet ASN peering will be used.  This update attempts to auto-detect if 2-octet ASN parsing should be used by using the following logic:

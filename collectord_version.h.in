@@ -6,9 +6,9 @@
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  *
  */
-#ifndef OPENBMP_VERSION_H
-#define OPENBMP_VERSION_H
+#ifndef COLLECTOR_VERSION_H
+#define COLLECTOR_VERSION_H
 
-#define OPENBMPD_VERSION "@OPENBMPD_VERSION@"
+#define COLLECTORD_VERSION "@COLLECTORD_VERSION@"
 
-#endif // OPENBMP_VERSION_H
+#endif // COLLECTOR_VERSION_H

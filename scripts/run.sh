@@ -25,10 +25,10 @@ else
 fi
 
 
-if [[ -f /config/openbmpd ]]; then
-    source /config/openbmpd
+if [[ -f /config/collectord ]]; then
+    source /config/collectord
 else
-    source /etc/default/openbmpd
+    source /etc/default/collectord
 fi
 
 #
@@ -51,20 +51,20 @@ if [[ -f /config/hosts ]]; then
 fi
 
 
-# Update openbmpd config file
-OPENBMP_CFG_FILE=/usr/etc/openbmp/openbmpd.conf
-sed -r -i "s/admin_id:.*/admin_id: ${ADMIN_ID}/" /usr/etc/openbmp/openbmpd.conf
-sed -r -i "s/localhost:9092/${KAFKA_FQDN}/" /usr/etc/openbmp/openbmpd.conf
+# Update collectord config file
+COLLECTOR_CFG_FILE=/usr/etc/openbmp/collectord.conf
+sed -r -i "s/admin_id:.*/admin_id: ${ADMIN_ID}/" /usr/etc/openbmp/collectord.conf
+sed -r -i "s/localhost:9092/${KAFKA_FQDN}/" /usr/etc/openbmp/collectord.conf
 
-if [[ -f /config/openbmpd.conf ]]; then
-    OPENBMP_CFG_FILE=/config/openbmpd.conf
+if [[ -f /config/collectord.conf ]]; then
+    COLLECTOR_CFG_FILE=/config/collectord.conf
 fi
 
 # Startup delay to allow for Kafka to start if not already running
 echo "Waiting 30 seconds to allow for Kafka and other containers to startup."
 sleep 30
 
-# Start openbmpd and wait - openbmpd runs in foreground
+# Start collectord and wait - collectord runs in foreground
 
-echo "Running openbmpd collector, see /var/log/openbmpd.log "
-/usr/bin/openbmpd -f -c ${OPENBMP_CFG_FILE}
+echo "Running collectord collector, see /var/log/collectord.log "
+/usr/bin/collectord -f -c ${COLLECTOR_CFG_FILE}

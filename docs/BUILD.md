@@ -121,29 +121,29 @@ localadmin@toolServer:/ws/ws-openbmp/openbmp/build$ cmake ../
 -- Build files have been written to: /ws/ws-openbmp/openbmp/build
 
 localadmin@toolServer:/ws/ws-openbmp/openbmp/build$ make
-Scanning dependencies of target openbmpd
-[  5%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bmp/BMPListener.cpp.o
-[ 10%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bmp/BMPReader.cpp.o
-[ 15%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/kafka/MsgBusImpl_kafka.cpp.o
-[ 20%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/kafka/KafkaEventCallback.cpp.o
-[ 25%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/kafka/KafkaDeliveryReportCallback.cpp.o
-[ 30%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/openbmp.cpp.o
-[ 35%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bmp/parseBMP.cpp.o
-[ 40%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/md5.cpp.o
-[ 45%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/Logger.cpp.o
-[ 50%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/client_thread.cpp.o
-[ 55%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bgp/parseBGP.cpp.o
-[ 60%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bgp/NotificationMsg.cpp.o
-[ 65%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bgp/OpenMsg.cpp.o
-[ 70%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bgp/UpdateMsg.cpp.o
-[ 75%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bgp/MPReachAttr.cpp.o
-[ 80%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bgp/MPUnReachAttr.cpp.o
-[ 85%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bgp/ExtCommunity.cpp.o
-[ 90%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bgp/linkstate/MPLinkState.cpp.o
-[ 95%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/bgp/linkstate/MPLinkStateAttr.cpp.o
-[100%] Building CXX object Server/CMakeFiles/openbmpd.dir/src/kafka/KafkaPeerPartitionerCallback.cpp.o
-Linking CXX executable openbmpd
-[100%] Built target openbmpd
+Scanning dependencies of target collectord
+[  5%] Building CXX object Server/CMakeFiles/collectord.dir/src/bmp/BMPListener.cpp.o
+[ 10%] Building CXX object Server/CMakeFiles/collectord.dir/src/bmp/BMPReader.cpp.o
+[ 15%] Building CXX object Server/CMakeFiles/collectord.dir/src/kafka/MsgBusImpl_kafka.cpp.o
+[ 20%] Building CXX object Server/CMakeFiles/collectord.dir/src/kafka/KafkaEventCallback.cpp.o
+[ 25%] Building CXX object Server/CMakeFiles/collectord.dir/src/kafka/KafkaDeliveryReportCallback.cpp.o
+[ 30%] Building CXX object Server/CMakeFiles/collectord.dir/src/openbmp.cpp.o
+[ 35%] Building CXX object Server/CMakeFiles/collectord.dir/src/bmp/parseBMP.cpp.o
+[ 40%] Building CXX object Server/CMakeFiles/collectord.dir/src/md5.cpp.o
+[ 45%] Building CXX object Server/CMakeFiles/collectord.dir/src/Logger.cpp.o
+[ 50%] Building CXX object Server/CMakeFiles/collectord.dir/src/client_thread.cpp.o
+[ 55%] Building CXX object Server/CMakeFiles/collectord.dir/src/bgp/parseBGP.cpp.o
+[ 60%] Building CXX object Server/CMakeFiles/collectord.dir/src/bgp/NotificationMsg.cpp.o
+[ 65%] Building CXX object Server/CMakeFiles/collectord.dir/src/bgp/OpenMsg.cpp.o
+[ 70%] Building CXX object Server/CMakeFiles/collectord.dir/src/bgp/UpdateMsg.cpp.o
+[ 75%] Building CXX object Server/CMakeFiles/collectord.dir/src/bgp/MPReachAttr.cpp.o
+[ 80%] Building CXX object Server/CMakeFiles/collectord.dir/src/bgp/MPUnReachAttr.cpp.o
+[ 85%] Building CXX object Server/CMakeFiles/collectord.dir/src/bgp/ExtCommunity.cpp.o
+[ 90%] Building CXX object Server/CMakeFiles/collectord.dir/src/bgp/linkstate/MPLinkState.cpp.o
+[ 95%] Building CXX object Server/CMakeFiles/collectord.dir/src/bgp/linkstate/MPLinkStateAttr.cpp.o
+[100%] Building CXX object Server/CMakeFiles/collectord.dir/src/kafka/KafkaPeerPartitionerCallback.cpp.o
+Linking CXX executable collectord
+[100%] Built target collectord
 
 ```
 
@@ -154,17 +154,17 @@ Install (All Platforms)
 
 Run: **sudo** make install
 
-> this will install openbmpd in /usr/bin/ by default.  You should be able to type **openbmpd** now to get the usage help. 
+> this will install collectord in /usr/bin/ by default.  You should be able to type **collectord** now to get the usage help. 
 > 
 
 ```
 ubuntu@bmp-dev:~/test/openbmp/build$ sudo make install
-[100%] Built target openbmpd
+[100%] Built target collectord
 Install the project...
 -- Install configuration: ""
--- Installing: /usr/bin/openbmpd
--- Installing: /etc/init/openbmpd.conf
--- Installing: /etc/default/openbmpd
--- Installing: /etc/init.d/openbmpd
--- Installing: /etc/logrotate.d/openbmpd
+-- Installing: /usr/bin/collectord
+-- Installing: /etc/init/collectord.conf
+-- Installing: /etc/default/collectord
+-- Installing: /etc/init.d/collectord
+-- Installing: /etc/logrotate.d/collectord
 ```

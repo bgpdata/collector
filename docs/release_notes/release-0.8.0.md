@@ -27,7 +27,7 @@ Change Log
 ### Defects/Fixes
 
 * Fixed issue where malformed BMP messages result in router entries in the DB
-* Fixed issue where openbmpd would core if the log file couldn't be accessed for read/write
+* Fixed issue where collectord would core if the log file couldn't be accessed for read/write
 * Fixed peer_rd parsing to correctly parse VPN peer RD types
 * Fixed issue where extended communities were not being updated in the DB on change
 * Fixed issues with router disconnects not being recorded correctly in DB
